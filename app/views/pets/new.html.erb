@@ -1,1 +1,8 @@
 <h1>New Pet</h1>
+
+<%= simple_form_for(@pet) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category %>
+  <%= f.input :birth %>
+  <%= f.submit %>
+<% end %>

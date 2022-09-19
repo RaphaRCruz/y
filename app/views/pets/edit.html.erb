@@ -1,1 +1,9 @@
 <h1>Edit</h1>
+
+<%= simple_form_for(@pet) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category %>
+  <%= f.input :birth %>
+  <%= f.input :adoption %>
+  <%= f.submit %>
+<% end %>
