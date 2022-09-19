@@ -31,6 +31,10 @@ class PetsController < ApplicationController
     redirect_to root_path
   end
 
+  def adopted
+    @pet = Pet.where(adoption: true)
+  end
+
   private
 
   def pet_params
