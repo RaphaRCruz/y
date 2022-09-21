@@ -1,1 +1,10 @@
-<h1>Congratulations</h1>
+<h1>Pets Adopted</h1>
+
+<% @pets.each do |pet| %>
+  <ul>
+    <li><%= link_to pet.name, edit_pet_path(pet), class: "btn btn-light" %></li>
+    <li><%= pet.category %></li>
+    <li><%= pet.birth %></li>
+    <li><%= link_to "Remove", pet_path(pet), class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %></li>
+  </ul>
+<% end %>

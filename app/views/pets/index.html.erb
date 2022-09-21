@@ -2,6 +2,9 @@
 
 <ul>
   <% @pets.each do |pet| %>
-    <li><%= pet.name %></li>
+    <li><%= link_to pet.name, pet_path(pet), class: "btn btn-light" %></li>
+    <li><%= pet.category %></li>
+    <li><%= pet.birth %></li>
+    <li><%= link_to "Remove", pet_path(pet), class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %></li>
   <% end %>
 </ul>

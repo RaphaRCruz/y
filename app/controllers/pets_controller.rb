@@ -2,7 +2,7 @@ class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pets = Pet.all
+    @pets = Pet.where(adoption: false)
   end
 
   def show
@@ -13,7 +13,7 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.new(params[:pet])
+    @pet = Pet.new(pet_params)
     @pet.save
     redirect_to root_path
   end
@@ -22,7 +22,7 @@ class PetsController < ApplicationController
   end
 
   def update
-    @pet.update(params[:pet])
+    @pet.update(pet_params)
     redirect_to pet_path
   end
 
@@ -32,7 +32,7 @@ class PetsController < ApplicationController
   end
 
   def adopted
-    @pet = Pet.where(adoption: true)
+    @pets = Pet.where(adoption: true)
   end
 
   private
