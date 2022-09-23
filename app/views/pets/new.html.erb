@@ -1,8 +1,8 @@
 <h1>New Pet</h1>
 
 <%= simple_form_for(@pet) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :category %>
+  <%= f.input :name, placeholder: "Minimun 2 letters" %>
+  <%= f.input :category, placeholder: "Dog, Cat or Other" %>
   <%= f.input :birth %>
   <%= f.submit %>
 <% end %>

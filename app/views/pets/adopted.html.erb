@@ -1,12 +1,21 @@
-<div class="d-flex justify-content-center">
-  <h1 class="mt-4 border-bottom"><strong> Pets Adopteds </strong></h1>
+<div class="conteiner">
+  <div class="d-flex justify-content-center">
+    <h1 class="mt-4 border-bottom"><strong> Pets Adopteds </strong></h1>
+  </div>
+  <div class="d-flex align-content-start flex-wrap">
+    <% @pets.each do |pet| %>
+      <div class="col-4 mb-3">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title border-bottom"><%= pet.name %></h5>
+            <p class="card-text">Category: <%= pet.category %></p>
+            <p class="card-text">Birth: <%= pet.birth %></p>
+            <p> <%= link_to "Pet's details", pet_path(pet), class: "btn btn-primary" %></p>
+            <p><%= link_to "Remove", pet_path(pet), class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<% @pets.each do |pet| %>
-  <ul>
-    <li><%= link_to pet.name, edit_pet_path(pet), class: "btn btn-light" %></li>
-    <li><%= pet.category %></li>
-    <li><%= pet.birth %></li>
-    <li><%= link_to "Remove", pet_path(pet), class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %></li>
-  </ul>
-<% end %>

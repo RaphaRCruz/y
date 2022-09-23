@@ -14,8 +14,11 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
-    @pet.save
-    redirect_to root_path
+    if @pet.save
+      redirect_to root_path, notice: 'Add sucess!'
+    else
+      redirect_to new_pet_path, alert: 'Invalid Pet'
+    end
   end
 
   def edit
@@ -23,7 +26,11 @@ class PetsController < ApplicationController
 
   def update
     @pet.update(pet_params)
-    redirect_to pet_path
+    if @pet.update(pet_params)
+      redirect_to root_path, notice: 'Update sucess!'
+    else
+      redirect_to edit_pet_path, alert: 'Invalid Pet!'
+    end
   end
 
   def destroy

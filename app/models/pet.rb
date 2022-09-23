@@ -1,7 +1,5 @@
 class Pet < ApplicationRecord
-  CATEGORY = [:dog, :cat, :other]
-
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 2 }
   validates :category, presence: true
   validates :birth, presence: true
 
